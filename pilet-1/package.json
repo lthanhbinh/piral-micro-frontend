@@ -1,0 +1,39 @@
+{
+  "name": "pilet-1",
+  "version": "1.1.1",
+  "description": "",
+  "app": "src/index.tsx",
+  "keywords": [
+    "pilet"
+  ],
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "app-shell": "file:..\\app-shell\\dist\\emulator\\app-shell-1.0.3.tgz",
+    "piral-cli": "1.3.3",
+    "piral-cli-webpack5": "1.3.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router": "5.3.4",
+    "react-router-dom": "5.3.4",
+    "tslib": "2.6.2",
+    "typescript": "latest"
+  },
+  "scripts": {
+    "start": "pilet debug",
+    "build": "pilet build",
+    "upgrade": "pilet upgrade"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "importmap": {
+    "imports": {},
+    "inherit": [
+      "app-shell"
+    ]
+  },
+  "source": "src/index.tsx"
+}
