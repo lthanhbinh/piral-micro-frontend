@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { PiletApi } from 'app-shell';
 import { ProductPage } from './ProductCardPage';
+import { Spinner } from './extensions/Spinner/Spinner';
 
 export function setup(app: PiletApi) {
   app.setData('cart', []);
-  const addToCart = (item: { product_id: string; }) => {
+  const addToCart = (item: { product_id: string }) => {
     let cart = app.getData('cart');
     cart.push(item);
     app.setData('cart', cart);
@@ -29,10 +30,14 @@ export function setup(app: PiletApi) {
       buyBtn: <button onClick={() => addToCart({ product_id: 'id-2' })}>Add Data</button>
     }
   ];
+  app.registerExtension('extension-spinner', Spinner);
   app.registerTile('Product', ({ piral }) => (
-    <ProductPage
-      productList={arrY}
-      BuyButton={({ item }) => <piral.Extension name="buy-button" params={item} />}
-    />
+    <>
+      <ProductPage
+        productList={arrY}
+        BuyButton={({ item }) => <piral.Extension name="buy-button" params={item} />}
+      />
+      <app.Extension name="extension-spinner" />
+    </>
   ));
 }
